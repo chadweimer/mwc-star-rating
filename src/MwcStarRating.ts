@@ -50,24 +50,33 @@ export class MwcStarRating extends LitElement {
 
   @property({ type: String, reflect: true }) icon = 'star';
 
-  @property({ type: Boolean, reflect: true}) readonly = false;
+  @property({ type: Boolean, reflect: true }) readonly = false;
 
   private ratings = [
-    {value: 5, class: 'whole', selected: false},
-    {value: 4.5, class: 'half', selected: false},
-    {value: 4, class: 'whole', selected: false},
-    {value: 3.5, class: 'half', selected: false},
-    {value: 3, class: 'whole', selected: false},
-    {value: 2.5, class: 'half', selected: false},
-    {value: 2, class: 'whole', selected: false},
-    {value: 1.5, class: 'half', selected: false},
-    {value: 1, class: 'whole', selected: false},
-    {value: 0.5, class: 'half', selected: false},
+    { value: 5, class: 'whole', selected: false },
+    { value: 4.5, class: 'half', selected: false },
+    { value: 4, class: 'whole', selected: false },
+    { value: 3.5, class: 'half', selected: false },
+    { value: 3, class: 'whole', selected: false },
+    { value: 2.5, class: 'half', selected: false },
+    { value: 2, class: 'whole', selected: false },
+    { value: 1.5, class: 'half', selected: false },
+    { value: 1, class: 'whole', selected: false },
+    { value: 0.5, class: 'half', selected: false },
   ];
 
   render() {
     return html`
-      ${this.ratings.map(item => html`<mwc-icon class="${item.class}" value="${item.value}" ?selected="${item.selected}" @click="${(e: Event) => this._starClicked(e, item.value)}">${this.icon}</mwc-icon>`)}
+      ${this.ratings.map(
+        item =>
+          html`<mwc-icon
+            class="${item.class}"
+            value="${item.value}"
+            ?selected="${item.selected}"
+            @click="${(e: Event) => this._starClicked(e, item.value)}"
+            >${this.icon}</mwc-icon
+          >`
+      )}
     `;
   }
 
@@ -82,7 +91,7 @@ export class MwcStarRating extends LitElement {
       return;
     }
 
-    this.ratings.forEach((rating) => {
+    this.ratings.forEach(rating => {
       const item = rating;
       if (item.value === value) {
         item.selected = true;
@@ -97,11 +106,13 @@ export class MwcStarRating extends LitElement {
     e.preventDefault();
 
     if (this.readonly) {
-        return;
+      return;
     }
 
     this.value = value;
 
-    this.dispatchEvent(new CustomEvent('rating-selected', {detail: {'value': value}}));
+    this.dispatchEvent(
+      new CustomEvent('rating-selected', { detail: { rating: value } })
+    );
   }
 }

@@ -40,4 +40,3 @@ const Template: Story<ArgTypes> = ({
 `;
 
 export const Regular = Template.bind({});
-
