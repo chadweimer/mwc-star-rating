@@ -53,15 +53,15 @@ export class MwcStarRating extends LitElement {
   @property({ type: Boolean, reflect: true }) readonly = false;
 
   private ratings = [
-    { value: 5, class: 'whole', selected: false },
+    { value: 5.0, class: 'whole', selected: false },
     { value: 4.5, class: 'half', selected: false },
-    { value: 4, class: 'whole', selected: false },
+    { value: 4.0, class: 'whole', selected: false },
     { value: 3.5, class: 'half', selected: false },
-    { value: 3, class: 'whole', selected: false },
+    { value: 3.0, class: 'whole', selected: false },
     { value: 2.5, class: 'half', selected: false },
-    { value: 2, class: 'whole', selected: false },
+    { value: 2.0, class: 'whole', selected: false },
     { value: 1.5, class: 'half', selected: false },
-    { value: 1, class: 'whole', selected: false },
+    { value: 1.0, class: 'whole', selected: false },
     { value: 0.5, class: 'half', selected: false },
   ];
 
@@ -91,9 +91,10 @@ export class MwcStarRating extends LitElement {
       return;
     }
 
+    const roundedValue = (Math.round(value * 2) / 2).toFixed(1);
     this.ratings.forEach(rating => {
       const item = rating;
-      if (item.value === value) {
+      if (item.value.toFixed(1) === roundedValue) {
         item.selected = true;
       } else {
         item.selected = false;
