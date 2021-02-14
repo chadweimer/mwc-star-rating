@@ -3,27 +3,48 @@
   "tags": [
     {
       "name": "mwc-star-rating",
-      "description": "A component with a title and an action counter",
+      "description": "5-star rating element",
       "properties": [
         {
-          "name": "title",
-          "type": "String",
-          "description": "The title of your component",
-          "default": "Hey there"
+          "name": "value",
+          "type": "Number",
+          "description": "The current rating value",
+          "default": 0
         },
         {
-          "name": "counter",
-          "type": "Number",
-          "description": "An action counter",
-          "default": 0
+          "name": "icon",
+          "type": "String",
+          "description": "The icon to use",
+          "default": "star"
+        },
+        {
+          "name": "readonly",
+          "type": "Boolean",
+          "description": "Whether the element is selectable or readonly",
+          "default": false
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "name": "rating-selected",
+          "summary": "Fires when the icon for a rating value is clicked"
+        }
+      ],
       "slots": [],
       "cssProperties": [
         {
           "name": "--mwc-star-rating-text-color",
           "description": "Main Text Color",
+          "type": "Color"
+        },
+        {
+          "name": "--mwc-star-rating-text-hover-color",
+          "description": "Hover Text Color",
+          "type": "Color"
+        },
+        {
+          "name": "--mwc-star-rating-text-select-color",
+          "description": "Selected Text Color",
           "type": "Color"
         }
       ]
