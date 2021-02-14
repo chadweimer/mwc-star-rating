@@ -5,8 +5,9 @@ export default {
   title: 'MwcStarRating',
   component: 'mwc-star-rating',
   argTypes: {
-    title: { control: 'text' },
-    counter: { control: 'number' },
+    value: { control: 'number' },
+    readonly: { control: 'boolean' },
+    icon: { control: 'text' },
     textColor: { control: 'color' },
   },
 };
@@ -18,43 +19,25 @@ interface Story<T> {
 }
 
 interface ArgTypes {
-  title?: string;
-  counter?: number;
+  value?: number;
+  readonly?: boolean;
+  icon?: string;
   textColor?: string;
-  slot?: TemplateResult;
 }
 
 const Template: Story<ArgTypes> = ({
-  title = 'Hello world',
-  counter = 5,
+  value = 3.5,
+  readonly = false,
+  icon = 'star',
   textColor,
-  slot,
 }: ArgTypes) => html`
   <mwc-star-rating
-    style="--mwc-star-rating-text-color: ${textColor || 'black'}"
-    .title=${title}
-    .counter=${counter}
-  >
-    ${slot}
-  </mwc-star-rating>
+    style="--mwc-star-rating-text-color: ${textColor || 'unset'}"
+    ?readonly=${readonly}
+    .value=${value}
+    .icon=${icon}
+  ></mwc-star-rating>
 `;
 
 export const Regular = Template.bind({});
 
-export const CustomTitle = Template.bind({});
-CustomTitle.args = {
-  title: 'My title',
-};
-
-export const CustomCounter = Template.bind({});
-CustomCounter.args = {
-  counter: 123456,
-};
-
-export const SlottedContent = Template.bind({});
-SlottedContent.args = {
-  slot: html`<p>Slotted content</p>`,
-};
-SlottedContent.argTypes = {
-  slot: { table: { disable: true } },
-};
