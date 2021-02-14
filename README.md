@@ -11,6 +11,7 @@ npm i @cwmr/mwc-star-rating
 ## Usage
 
 ```html
+<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
 <script type="module">
   import '@cwmr/mwc-star-rating';
 </script>
