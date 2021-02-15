@@ -2,6 +2,10 @@
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
+[![Published on NPM](https://img.shields.io/npm/v/@cwmr/mwc-star-rating.svg)](https://www.npmjs.com/package/@cwmr/mwc-star-rating)
+![Node.js Package](https://img.shields.io/github/workflow/status/chadweimer/mwc-star-rating/Node.js%20Package)
+[![license](https://img.shields.io/github/license/chadweimer/mwc-star-rating.svg)](LICENSE)
+
 ## Installation
 
 ```bash
