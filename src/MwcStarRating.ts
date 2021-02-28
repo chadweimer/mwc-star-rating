@@ -46,13 +46,16 @@ export class MwcStarRating extends LitElement {
     }
   `;
 
-  @property({ type: Number }) value = 0;
+  @property({ type: Number })
+  public value = 0;
 
-  @property({ type: String, reflect: true }) icon = 'star';
+  @property({ type: String, reflect: true })
+  public icon = 'star';
 
-  @property({ type: Boolean, reflect: true }) readonly = false;
+  @property({ type: Boolean, reflect: true })
+  public readonly = false;
 
-  private ratings = [
+  private _ratings = [
     { value: 5.0, class: 'whole', selected: false },
     { value: 4.5, class: 'half', selected: false },
     { value: 4.0, class: 'whole', selected: false },
@@ -65,9 +68,9 @@ export class MwcStarRating extends LitElement {
     { value: 0.5, class: 'half', selected: false },
   ];
 
-  render() {
+  protected render() {
     return html`
-      ${this.ratings.map(
+      ${this._ratings.map(
         item =>
           html`<mwc-icon
             class="${item.class}"
@@ -80,19 +83,19 @@ export class MwcStarRating extends LitElement {
     `;
   }
 
-  updated(changedProperties: PropertyValues) {
+  protected updated(changedProperties: PropertyValues) {
     if (changedProperties.has('value')) {
       this._valueChanged(this.value);
     }
   }
 
-  _valueChanged(value: number) {
+  private _valueChanged(value: number) {
     if (value !== 0 && !value) {
       return;
     }
 
     const roundedValue = (Math.round(value * 2) / 2).toFixed(1);
-    this.ratings.forEach(rating => {
+    this._ratings.forEach(rating => {
       const item = rating;
       if (item.value.toFixed(1) === roundedValue) {
         item.selected = true;
@@ -103,7 +106,7 @@ export class MwcStarRating extends LitElement {
     this.requestUpdate();
   }
 
-  _starClicked(e: Event, value: number) {
+  private _starClicked(e: Event, value: number) {
     e.preventDefault();
 
     if (this.readonly) {
