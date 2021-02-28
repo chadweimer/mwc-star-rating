@@ -11,7 +11,6 @@ describe('MwcStarRating', () => {
     );
 
     expect(el.value).to.equal(0);
-    expect(el.readonly).to.equal(false);
     expect(el.icon).to.equal('star');
   });
 
@@ -31,22 +30,6 @@ describe('MwcStarRating', () => {
     );
 
     expect(el.value).to.equal(3);
-  });
-
-  it('can set readonly via attribute', async () => {
-    const el = await fixture<MwcStarRating>(
-      html`<mwc-star-rating readonly></mwc-star-rating>`
-    );
-
-    expect(el.readonly).to.equal(true);
-  });
-
-  it('can set readonly via binding', async () => {
-    const el = await fixture<MwcStarRating>(
-      html`<mwc-star-rating ?readonly="${true}"></mwc-star-rating>`
-    );
-
-    expect(el.readonly).to.equal(true);
   });
 
   it('can set icon via attribute', async () => {

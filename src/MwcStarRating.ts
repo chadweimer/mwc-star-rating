@@ -6,16 +6,11 @@ export class MwcStarRating extends LitElement {
     :host {
       display: inline-block;
       color: var(--mwc-star-rating-text-color, #c0c0c0);
+      cursor: pointer;
       --mdc-icon-size: var(--mwc-star-rating-size, 24px);
     }
-    :host([readonly]) {
-      cursor: default;
-    }
-    :host(:not([readonly])) {
-      cursor: pointer;
-    }
-    :host(:not([readonly])) mwc-icon:hover,
-    :host(:not([readonly])) mwc-icon:hover ~ mwc-icon {
+    :host mwc-icon:hover,
+    :host mwc-icon:hover ~ mwc-icon {
       color: var(--mwc-star-rating-text-hover-color, #ffeb3b) !important;
     }
 
@@ -46,14 +41,18 @@ export class MwcStarRating extends LitElement {
     }
   `;
 
+  /**
+   * The rating value (from 0-5).
+   */
   @property({ type: Number })
   public value = 0;
 
+  /**
+   * The icon to use for the rating icons. Values should correspond to the configured icon font.
+   * Defaults to 'star'.
+   */
   @property({ type: String, reflect: true })
   public icon = 'star';
-
-  @property({ type: Boolean, reflect: true })
-  public readonly = false;
 
   private _ratings = [
     { value: 5.0, class: 'whole', selected: false },
@@ -108,10 +107,6 @@ export class MwcStarRating extends LitElement {
 
   private _starClicked(e: Event, value: number) {
     e.preventDefault();
-
-    if (this.readonly) {
-      return;
-    }
 
     this.value = value;
 

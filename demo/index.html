@@ -7,10 +7,17 @@
     body {
       background: #fafafa;
     }
+    .disabled {
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
-  <div id="demo"></div>
+  <h3>Normal</h3>
+  <div id="normal"></div>
+
+  <h3>Disabled</h3>
+  <div id="disabled"></div>
 
   <script type="module">
     import { html, render } from 'lit-html';
@@ -21,7 +28,20 @@
       html`
         <mwc-star-rating .value=${value}></mwc-star-rating>
       `,
-      document.querySelector('#demo')
+      document.querySelector('#normal')
+    );
+  </script>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../dist/mwc-star-rating.js';
+
+    const value = 3.5;
+    render(
+      html`
+        <mwc-star-rating .value=${value} class="disabled"></mwc-star-rating>
+      `,
+      document.querySelector('#disabled')
     );
   </script>
 </body>
