@@ -42,13 +42,13 @@ export class MwcStarRating extends LitElement {
   `;
 
   /**
-   * The rating value (from 0-5).
+   * The current rating value (0-5).
    */
   @property({ type: Number })
   public value = 0;
 
   /**
-   * The icon to use for the rating icons. Values should correspond to the configured icon font.
+   * The icon to use. Values should correspond to the configured icon font.
    * Defaults to 'star'.
    */
   @property({ type: String, reflect: true })

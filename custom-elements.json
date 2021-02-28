@@ -8,21 +8,15 @@
         {
           "name": "value",
           "type": "Number",
-          "description": "The current rating value",
+          "description": "The current rating value (0-5)",
           "default": 0
         },
         {
           "name": "icon",
           "type": "String",
-          "description": "The icon to use",
+          "description": "The icon to use. Values should correspond to the configured icon font.",
           "default": "star"
         },
-        {
-          "name": "readonly",
-          "type": "Boolean",
-          "description": "Whether the element is selectable or readonly",
-          "default": false
-        }
       ],
       "events": [
         {
