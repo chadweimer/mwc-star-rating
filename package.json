@@ -1,6 +1,6 @@
 {
   "name": "@cwmr/mwc-star-rating",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "5-star rating element following open-wc recommendations",
   "author": "cwmr",
   "license": "MIT",
