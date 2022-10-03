@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit-html';
+import { html, TemplateResult } from 'lit';
 import '../mwc-star-rating.js';
 
 export default {
