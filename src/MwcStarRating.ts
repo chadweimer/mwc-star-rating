@@ -1,4 +1,5 @@
-import { html, css, LitElement, property, PropertyValues } from 'lit-element';
+import { html, css, LitElement, PropertyValues } from 'lit';
+import { property } from 'lit/decorators.js';
 import '@material/mwc-icon';
 
 export class MwcStarRating extends LitElement {
